@@ -1,12 +1,11 @@
 let userButton = document.querySelector('.button');
 let userInput = document.querySelector('.input');
 let result = document.querySelector('.result');
-let square = document.querySelector('.square');
 let essai = 0;
 
-//let try = 0;
 console.log(parseInt(userInput.value));
 console.log(typeof(parseInt(userInput.value)));
+
 const cardNumber = parseFloat(1 + Math.floor(100 * Math.random()));
 
 console.log(cardNumber);
