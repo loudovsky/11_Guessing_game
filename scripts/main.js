@@ -17,11 +17,11 @@ function guessingNbr(nbr) {
     let result = document.querySelector('.result');
     if (essai < 4) {
         let restant = 5 - essai;
-        if (nbr < cardNumber) {
+        if (nbr < cardNumber && nbr > 0) {
             result.innerHTML = `Vous avez entré <span>${userInput.value}</span> Cherchez plus haut. <br>Il vous reste <span>${restant}</span> essais.`;
             erase();
         }
-        else if (cardNumber < nbr) {
+        else if (cardNumber < nbr && nbr < 101) {
             result.innerHTML = `Vous avez entré <span>${userInput.value}</span>  Cherchez plus bas. <br>Il vous reste <span>${restant}</span> essais.`;
             erase();
         }
@@ -43,11 +43,11 @@ function guessingNbr(nbr) {
     }
 
     else if (essai == 4) {
-        if (nbr < cardNumber) {
+        if (nbr < cardNumber && nbr > 0) {
             result.innerHTML = `Vous avez entré <span>${userInput.value}</span> Cherchez plus haut. <br>Dernière chance. Il vous reste <span>1</span> essai. Hou! La pression!`
             erase();
         }
-        else if (cardNumber < nbr) {
+        else if (cardNumber < nbr && nbr < 101) {
             result.innerHTML = `Vous avez entré <span>${userInput.value}</span> Cherchez plus bas. <br>Dernière chance. Il vous reste <span>1</span> essai. Hou! La pression!`;
             erase();
         }
@@ -69,10 +69,10 @@ function guessingNbr(nbr) {
     }
 
     else if (essai == 5) {
-        if (nbr < cardNumber) {
+        if (nbr < cardNumber && nbr > 0) {
             result.innerHTML = `GAME OVER! Le nombre à deviner était <span>${cardNumber}</span><br>Recommencez!`
         }
-        else if (cardNumber < nbr) {
+        else if (cardNumber < nbr && nbr < 101) {
             result.innerHTML = `GAME OVER! Le nombre à deviner était <span>${cardNumber}</span><br>Recommencez!`
         }
         else if (cardNumber === nbr) {
@@ -104,6 +104,6 @@ function erase() {
     let result = document.querySelector('.result');
     setTimeout(function() {
         result.setAttribute("class", "result-erase");
-    }, 4000)} 
+    }, 3500)} 
 
 
