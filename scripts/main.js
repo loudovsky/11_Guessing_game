@@ -92,19 +92,25 @@ function guessingNbr(nbr) {
 userButton.addEventListener('click', function() {
     guessingNbr(parseInt(userInput.value))
     userInput.value = "";
+    document.getElementsByTagName("p")[1].setAttribute("class", "result");
+    //on accorde à la deuxième balise <p> la classe "result"
 })
 
 userInput.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
         guessingNbr(parseInt(userInput.value))
-        userInput.value = ""; 
+        userInput.value = "";
+        document.getElementsByTagName("p")[1].setAttribute("class", "result");
+         //on accorde à la deuxième balise <p> la classe "result"
     } 
 })
 
 function erase() {
-    setTimeout(() => {
-        result.innerHTML = "";
-        }, 5000);
+    if (essai < 4) {
+        setTimeout(function() {
+            result.setAttribute("class", "result-erase");
+        }, 3500)
+    } 
 }
 
 
