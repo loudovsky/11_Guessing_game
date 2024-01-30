@@ -10,7 +10,7 @@ const cardNumber = parseFloat(1 + Math.floor(100 * Math.random()));
 
 console.log(cardNumber);
 console.log(typeof(cardNumber));
-// 100 * Math.random() génère un nombre aléatoire situé entre 0.0 et 99.999.. / Math.floor arrondi ce nombre à la valeur aléatoire inférieure. / il faut ajouter +1 pour se situer entre 1 et 100.
+// 100 * Math.random() génère un nombre aléatoire situé entre 0.0 et 99.999.. / Math.floor arrondi ce nombre à la valeur entière inférieure. / il faut ajouter +1 pour se situer entre 1 et 100.
 
 function guessingNbr(nbr) {
     essai++;
