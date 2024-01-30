@@ -1,6 +1,5 @@
 let userButton = document.querySelector('.button');
 let userInput = document.querySelector('.input');
-let result = document.querySelector('.result');
 let essai = 0;
 
 console.log(parseInt(userInput.value));
@@ -14,18 +13,20 @@ console.log(typeof(cardNumber));
 
 function guessingNbr(nbr) {
     essai++;
+    document.getElementsByTagName("p")[1].setAttribute("class", "result");
+    let result = document.querySelector('.result');
     if (essai < 4) {
         let restant = 5 - essai;
         if (nbr < cardNumber) {
-            result.innerHTML = `Vous avez entré <span>(${userInput.value})</span> Cherchez plus haut. <br>Il vous reste <span>${restant}</span> essais.`;
+            result.innerHTML = `Vous avez entré <span>${userInput.value}</span> Cherchez plus haut. <br>Il vous reste <span>${restant}</span> essais.`;
             erase();
         }
         else if (cardNumber < nbr) {
-            result.innerHTML = `Vous avez entré <span>(${userInput.value})</span>  Cherchez plus bas. <br>Il vous reste <span>${restant}</span> essais.`;
+            result.innerHTML = `Vous avez entré <span>${userInput.value}</span>  Cherchez plus bas. <br>Il vous reste <span>${restant}</span> essais.`;
             erase();
         }
         else if (cardNumber === nbr) {
-            result.innerHTML = `Bingo!!! Il s'agissait bien du nombre <span>${cardNumber}</span>`
+            result.innerHTML = `Bingo!!! Il s'agissait bien du numéro <span>${cardNumber}</span>`
             if (restant !=0) {
                 userInput.setAttribute("class", "input-none");
                 userButton.innerText = "Recommencez";
@@ -43,15 +44,15 @@ function guessingNbr(nbr) {
 
     else if (essai == 4) {
         if (nbr < cardNumber) {
-            result.innerHTML = `Vous avez entré <span>(${userInput.value})</span> Cherchez plus haut. <br>Dernière chance. Il vous reste <span>1</span> essai. Hou! La pression!`
+            result.innerHTML = `Vous avez entré <span>${userInput.value}</span> Cherchez plus haut. <br>Dernière chance. Il vous reste <span>1</span> essai. Hou! La pression!`
             erase();
         }
         else if (cardNumber < nbr) {
-            result.innerHTML = `Vous avez entré <span>(${userInput.value})</span> Cherchez plus bas. <br>Dernière chance. Il vous reste <span>1</span> essai. Hou! La pression!`;
+            result.innerHTML = `Vous avez entré <span>${userInput.value}</span> Cherchez plus bas. <br>Dernière chance. Il vous reste <span>1</span> essai. Hou! La pression!`;
             erase();
         }
         else if (cardNumber === nbr) {
-            result.innerHTML = `Bingo!!! Il s'agissait bien du nombre <span>${cardNumber}</span>`
+            result.innerHTML = `Bingo!!! Il s'agissait bien du numéro <span>${cardNumber}</span>`
             if (restant !=0) {
                 userInput.setAttribute("class", "input-none");
                 userButton.innerText = "Recommencez";
@@ -69,16 +70,16 @@ function guessingNbr(nbr) {
 
     else if (essai == 5) {
         if (nbr < cardNumber) {
-            result.innerHTML = `GAME OVER! Le nombre à deviner était <span>(${cardNumber})</span><br>Recommencez!`
+            result.innerHTML = `GAME OVER! Le nombre à deviner était <span>${cardNumber}</span><br>Recommencez!`
         }
         else if (cardNumber < nbr) {
-            result.innerHTML = `GAME OVER! Le nombre à deviner était <span>(${cardNumber})</span><br>Recommencez!`
+            result.innerHTML = `GAME OVER! Le nombre à deviner était <span>${cardNumber}</span><br>Recommencez!`
         }
         else if (cardNumber === nbr) {
-            result.innerHTML = `Bingo!!! Il s'agissait bien du nombre <span>${cardNumber}</span>`
+            result.innerHTML = `Bingo!!! Il s'agissait bien du numéro <span>${cardNumber}</span>`
         }
         else  {
-            result.innerHTML = `Entrez un nombre entre 1 et 100, que j'vous avais dit!<br>De toute manière, le jeu est fini. Le nombre à deviner était <span>(${cardNumber})</span>`
+            result.innerHTML = `Entrez un nombre entre 1 et 100, que j'vous avais dit!<br>De toute manière, le jeu est fini. Le nombre à deviner était <span>${cardNumber}</span>`
         }
         userInput.setAttribute("class", "input-none");
         userButton.innerText = "Recommencez";
@@ -91,26 +92,18 @@ function guessingNbr(nbr) {
 
 userButton.addEventListener('click', function() {
     guessingNbr(parseInt(userInput.value))
-    userInput.value = "";
-    document.getElementsByTagName("p")[1].setAttribute("class", "result");
-    //on accorde à la deuxième balise <p> la classe "result"
-})
+    userInput.value = "";})
 
 userInput.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
         guessingNbr(parseInt(userInput.value))
-        userInput.value = "";
-        document.getElementsByTagName("p")[1].setAttribute("class", "result");
-         //on accorde à la deuxième balise <p> la classe "result"
-    } 
+        userInput.value = "";} 
 })
 
 function erase() {
-    if (essai < 4) {
-        setTimeout(function() {
-            result.setAttribute("class", "result-erase");
-        }, 3500)
-    } 
-}
+    let result = document.querySelector('.result');
+    setTimeout(function() {
+        result.setAttribute("class", "result-erase");
+    }, 4000)} 
 
 

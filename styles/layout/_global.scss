@@ -22,10 +22,11 @@ body {
         box-shadow: 1px 1px 10px #0000009d; 
         border-radius: 10px;
         .result {
-            color:tomato;
+            color:darkblue;
             font-weight: 500;
             span {
-                color: darkblue;
+                color: tomato;
+                font-weight: 600;
             }
         }
         .result-erase {
